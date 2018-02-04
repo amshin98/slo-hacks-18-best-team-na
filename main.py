@@ -35,9 +35,12 @@ def homepage():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
+    print("WADDUP")
     if request.method == 'POST':
         if request.form['uid'] is not None:
             return redirect(auth_flow.get_authorization_url())
+        else:
+            return redirect("leekspin.com")
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():

@@ -19,10 +19,11 @@
 
 	btnLogin.addEventListener('click', e =>{
 		const email = txtEmail.value;
+		console.log(email)
 		const pass = txtPassword.value;
 		const auth = firebase.auth();
 		const promise = auth.signInWithEmailAndPassword(email, pass);
-		promise.catch(e => console.log(e.message));
+		promise.catch(e => alert(e.message));
 		promise.then(function(value){
 			var form = $('<form action="/login" name="dashboard" method="post" style="display:none;"><input type="text" name="uid" value="'+value.uid+'" /></form>');
 	   		$('body').append(form);
