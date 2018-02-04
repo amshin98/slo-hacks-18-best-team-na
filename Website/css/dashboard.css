@@ -1,0 +1,45 @@
+*{
+	font-family: "Trebuchet MS";
+}
+
+#navbar {
+    background-color: #f7b733;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+#bottomInfo{
+	color: #dfdce3;
+}
+
+body{
+	margin: 0;
+	background-color: #4abdac;
+	height: 120vh;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	padding-top: 60px;
+	width: 100%;
+}
+
+li{
+	background-color: #4abdac;
+	height: 70px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display:block;
+	border: 1px solid grey;
+	list-style-type: none;
+}
+
+img{
+	max-height: 100%;
+	max-width: 100%;
+}
