@@ -59,7 +59,8 @@ def dashboard():
     for ride in history['history']:
         p = get_estimated_price(ride['start_time'], ride['end_time'], ride['distance'])
         price_list.append(p)
-        price_tot += p
+        price_tot += float(decimal.Decimal(p))
+        print(price_tot)
     print(price_list)
     addr_matrix = [['1011 Railroad Ave, San Luis Obispo, CA 93401, US', 'Cerro Hollister, San Luis Obispo, CA 93405, USA'],
                    ['1701 Grand Ave, Del Mar, CA 92014, USA', '3663 Lorimer Ln, Encinitas, CA 92024, USA'],
@@ -80,7 +81,7 @@ def dashboard():
         'price_list': price_list,
         'walking_times': walking_times,
         'biking_times': biking_times,
-        'price_tot': p
+        'price_tot': price_tot
     }
     return render_template('dashboard.html', user_data=user_data, credentials=credentials)
 
