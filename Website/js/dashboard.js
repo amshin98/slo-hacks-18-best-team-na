@@ -10,7 +10,7 @@
   firebase.initializeApp(config);
 
 
-	/*firebase.auth().onAuthStateChanged(function(currentUser) {
+	firebase.auth().onAuthStateChanged(function(currentUser) {
 	  if (currentUser) {
 	    // the user is logged in, you can bootstrap functionality now
 	    init();
@@ -18,7 +18,7 @@
 	  else{
 	  	window.location = '../html/404.html';
 	  }
-	});*/
+	});
 	init();
 }());
 

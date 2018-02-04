@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>homepage</title>
+	<link rel="stylesheet" href="../Website/css/homepage.css">
+	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 </head>
+
 <body>
-    <div>
-        Welcome to SLORide!
-    </div>
-    <a href={{ loginlink }}>click me to login</a>
+	<div id="navbar">WELCOME</div>
+	<div class="container">
+		<input id="txtEmail" type=email placeholder="Email">
+		<input id="txtPassword" type=password placeholder="Password">
+		<div id="errorLabel"></div>
+		<button id="btnLogin">Login</button>
+		<button id="btnSignUp">Sign Up</button>
+	</div>
+
+	<script src="../js/loginsignup.js"></script>
 </body>
+
 </html>
