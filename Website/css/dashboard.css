@@ -1,0 +1,31 @@
+#navbar {
+    background-color: white;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+body{
+	margin: 0;
+	background-color: blue;
+	height: 120vh;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+	padding-top: 60px;
+}
+
+li{
+	background-color: green;
+	height: 70px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display:block;
+	border: 1px solid grey;
+	list-style-type: none;
+}
