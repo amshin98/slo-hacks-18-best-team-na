@@ -1,0 +1,18 @@
+#navbar {
+    background-color: #f7b733;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+.container{
+	padding-top: 60px;
+}
+
+body{
+	margin: 0;
+	background-color: #4abdac;
+	height: 120vh;
+}
