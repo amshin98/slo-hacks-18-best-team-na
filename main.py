@@ -31,8 +31,13 @@ auth_flow = AuthorizationCodeGrant(
 @app.route('/', methods=['GET', 'POST'])
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    auth_url = auth_flow.get_authorization_url()
-    return render_template('homepage.html', loginlink=auth_url)
+    return render_template('homepage.html')
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        if request.form['uid'] is not None:
+            return redirect(auth_flow.get_authorization_url())
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():

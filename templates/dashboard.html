@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>var credentials = {{ credentials }};</script>
+    <script>var credentials = {{ credentials }}; console.log(credentials);</script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
     <script src="{{ url_for('static', filename='js/importToDatabase.js') }}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
