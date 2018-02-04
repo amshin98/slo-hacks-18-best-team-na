@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <script>var credentials = {{ credentials }};</script>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <script src="js/importToDatabase.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="{{ url_for('static', filename='js/importToDatabase.js') }}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <meta charset="UTF-8">
