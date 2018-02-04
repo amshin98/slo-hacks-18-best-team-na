@@ -22,7 +22,7 @@
 		const auth = firebase.auth();
 		const promise = auth.signInWithEmailAndPassword(email, pass);
 		promise.catch(e => console.log(e.message));
-		promise.then()
+		promise.then(redir())
 	});
 
 	btnSignUp.addEventListener('click', e =>{
