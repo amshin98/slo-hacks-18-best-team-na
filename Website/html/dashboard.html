@@ -2,18 +2,25 @@
 <html>
 <head>
 	<link rel="stylesheet" href="../css/dashboard.css">
-
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+	<script src="../js/importToDatabase.js"></script>
+
 </head>
 
 <body>
 	<div id="navbar">WELCOME</div>
 
-	<div id="charts"></div>
+	<div id="header" size>
+		<b><font size = "5" style = "bold">
+		&nbsp;<bold>Type</bold>&emsp;&emsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;<bold>Date/Time</bold>&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;<bold>Cost</bold>&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;<bold>Distance</bold>
+	</font></b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input id="import" type="button" value="Import from Uber" onclick="importToDatabase();" />
+	</div>
+
+	<div id="tickers"></div>
 	<ul id="tripEntries"></ul>
 
-	<div id="bottomInfo">Icons designed by Freepik, Scott de Jonge, Swifticons, and Iconnice from Flaticon</div>
+	<center><div id="bottomInfo">Icons designed by Freepik, Scott de Jonge, Swifticons, and Iconnice from Flaticon</div></center>
 </body>
-
-<script src="../js/dashboard.js"></script>
+	<script src="../js/dashboard.js"></script>
 </html>

@@ -28,7 +28,7 @@ auth_flow = AuthorizationCodeGrant(
     )
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/homepage', methods=['GET', 'POST'])
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
     auth_url = auth_flow.get_authorization_url()
