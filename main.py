@@ -39,7 +39,7 @@ def dashboard():
     session = auth_flow.get_session(session_url)
     client = UberRidesClient(session, sandbox_mode=True)
     credentials = session.oauth2credential
-    print("session is type " + str(type(session)))
+    print("session is type " + str(type(credentials)))
     # TODO store the credentials in the database
     response = client.get_user_profile()
     profile = response.json
