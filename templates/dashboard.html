@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>var credentials = {{ credentials }};</script>
     <meta charset="UTF-8">
     <title>dashboard</title>
 </head>
 <body>
+<div><b>Welcome</b></div>
 <div>previous rides:</div>
-{% for x in history['history'] %}
-<div>Distance of trip: {{ x['distance'] }}</div>
+{% for x in range(user_data['history']['history']|length) %}
+<div>Distance of trip: {{ user_data['history']['history'][x]['distance'] }} miles.    Estimated Price: ${{  user_data['price_list'][x] }}
+You could have walked instead of buying a rideshare in {{ user_data['walking_times'][x] }}</div>
+    <br/>
 {% endfor %}
 </body>
 </html>
