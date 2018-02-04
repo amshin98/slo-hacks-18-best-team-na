@@ -55,23 +55,32 @@ def dashboard():
         history['history'][x]['distance'] = round(history['history'][x]['distance'], 2)
     print(history)
     price_list = []
+    price_tot = 0.0
     for ride in history['history']:
-        price_list.append(get_estimated_price(ride['start_time'], ride['end_time'], ride['distance']))
+        p = get_estimated_price(ride['start_time'], ride['end_time'], ride['distance'])
+        price_list.append(p)
+        price_tot += p
     print(price_list)
-    walk_matrix = [['1011 Railroad Ave, San Luis Obispo, CA 93401, US', 'Cerro Hollister, San Luis Obispo, CA 93405, USA'],
+    addr_matrix = [['1011 Railroad Ave, San Luis Obispo, CA 93401, US', 'Cerro Hollister, San Luis Obispo, CA 93405, USA'],
                    ['1701 Grand Ave, Del Mar, CA 92014, USA', '3663 Lorimer Ln, Encinitas, CA 92024, USA'],
                    ['3951 Camino Calma, San Diego, CA 92122, USA', '507 Kristen Ct, Encinitas, CA 92024, US'],
                    ['100 Grand Ave, San Luis Obispo, CA 93405, USA', '740 W Foothill Blvd, San Luis Obispo, California 93405, US'],
                    ['1011 Railroad Ave, San Luis Obispo, CA 93401, US', 'Cerro Hollister, San Luis Obispo, CA 93405, USA']
                    ]
     walking_times = []
-    for to_from in walk_matrix:
+    for to_from in addr_matrix:
         dist_mx = distance_matrix.distance_matrix(maps_client, to_from[0], to_from[1], mode='walking')
         walking_times.append(dist_mx['rows'][0]['elements'][0]['duration']['text'])
+    biking_times = []
+    for to_from in addr_matrix:
+        dist_mx = distance_matrix.distance_matrix(maps_client, to_from[0], to_from[1], mode='bicycling')
+        biking_times.append(dist_mx['rows'][0]['elements'][0]['duration']['text'])
     user_data = {
         'history': history,
         'price_list': price_list,
-        'walking_times': walking_times
+        'walking_times': walking_times,
+        'biking_times': biking_times,
+        'price_tot': p
     }
     return render_template('dashboard.html', user_data=user_data, credentials=credentials)
 
