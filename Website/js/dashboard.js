@@ -35,8 +35,8 @@ function populateTrips(){
 	var trip = document.createElement("LI");
 	trip.style.color = "#dfdce3";
 	trip.style.fontWeight = "bold";
-	trip.style.fontSize = "larger";
-	formatTrip(trip, "uber", "12/1 1:00", 10, 1)
+	trip.style.fontSize = "xx-large";
+	formatTrip(trip, "uber", "12/1 1:00", 10.00, 1.12)
 	document.getElementById('tripEntries').appendChild(trip);
 }
 
@@ -63,9 +63,9 @@ function formatTrip(trip, type, dateTime, cost, dist){
 			break
 	}
 
-	var dateAndTime = document.createTextNode(dateTime);
-	var cst = document.createTextNode(cost);
-	var dst = document.createTextNode(dist);
+	var dateAndTime = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0".concat(dateTime));
+	var cst = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0$".concat(cost));
+	var dst = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0".concat(dist).concat(" miles"));
 
 	trip.append(icon);
 	trip.append(dateAndTime);

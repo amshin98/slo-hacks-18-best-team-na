@@ -3,7 +3,7 @@
 }
 
 #navbar {
-    background-color: white;
+    background-color: #f7b733;
     position: fixed;
     height: 60px;
     width: 100%;
@@ -11,9 +11,13 @@
     left: 0px;
 }
 
+#bottomInfo{
+	color: #dfdce3;
+}
+
 body{
 	margin: 0;
-	background-color: blue;
+	background-color: #4abdac;
 	height: 120vh;
 }
 
@@ -21,10 +25,11 @@ ul{
 	margin: 0;
 	padding: 0;
 	padding-top: 60px;
+	width: 100%;
 }
 
 li{
-	background-color: green;
+	background-color: #4abdac;
 	height: 70px;
 	width: 100%;
 	margin: 0;
