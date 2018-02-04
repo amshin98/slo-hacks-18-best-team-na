@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<link rel="stylesheet" href="../static/css/homepage.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
 	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 </head>
 
@@ -16,7 +16,7 @@
 		<button id="btnSignUp">Sign Up</button>
 	</div>
 
-	<script src="../js/loginsignup.js"></script>
+	<script src="{{ url_for('static', filename='js/loginsignup.js') }}></script>
 <a href="{{ loginlink }}">uber login here ignore login info</a>
 </body>
 
