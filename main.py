@@ -1,4 +1,5 @@
 from flask import Flask, redirect, render_template, request
+from flask_talisman import Talisman
 import decimal
 from uber_rides.auth import AuthorizationCodeGrant
 from uber_rides.session import Session
@@ -13,6 +14,10 @@ from uber_rides.client import UberRidesClient
 import json
 
 app = Flask(__name__)
+csp = {
+    'default-src': '*'
+}
+Talisman(app, content_security_policy=csp)
 maps_client = googlemaps.Client(key='AIzaSyBQyKQQh6QIdO_yP_2iBcveuJM5a5GIUkg')
 client_id = "TIvRAECnK2JEv6tx9y0bAms6HxspyvOP"
 client_secret = "3wYOwVb_DMSJU_58TnGvkdNWBW8vIy4izVhk-tj4"
@@ -24,7 +29,7 @@ auth_flow = AuthorizationCodeGrant(
     client_id,
     scopes,
     client_secret,
-    'http://localhost:8080/dashboard'
+    'https://getoffyourlazybutt.com/dashboard'
     )
 
 
@@ -101,5 +106,5 @@ def get_estimated_price(start_time, end_time, distance):
 if __name__ == '__main__':
     # This is used when running locally. Gunicorn is used to run the
     # application on Google App Engine. See entrypoint in app.yaml.
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=80, debug=True)
 
