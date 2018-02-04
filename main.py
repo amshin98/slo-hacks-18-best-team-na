@@ -68,16 +68,6 @@ def dashboard():
     return render_template('dashboard.html', user_data=user_data, credentials=credentials)
 
 
-@app.route('/anotherpage', methods=['GET', 'POST'])
-def anotherpage():
-    to_input = request.form['to_addr']
-    from_input = request.form['from_addr']
-    bike_json = distance_matrix.distance_matrix(maps_client, from_input, to_input, mode='bicycling')
-    bike_time = bike_json['rows'][0]['elements'][0]['duration']['text']
-    walk_json = distance_matrix.distance_matrix(maps_client, from_input, to_input, mode='walking')
-    walk_time = walk_json['rows'][0]['elements'][0]['duration']['text']
-    return render_template('anotherpage.html', bike_time=bike_time, walk_time=walk_time)
-
 @app.errorhandler(500)
 def server_error(e):
     return """
