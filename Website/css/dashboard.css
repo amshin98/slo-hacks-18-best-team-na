@@ -1,3 +1,7 @@
+*{
+	font-family: "Trebuchet MS";
+}
+
 #navbar {
     background-color: white;
     position: fixed;
@@ -28,4 +32,9 @@ li{
 	display:block;
 	border: 1px solid grey;
 	list-style-type: none;
+}
+
+img{
+	max-height: 100%;
+	max-width: 100%;
 }
