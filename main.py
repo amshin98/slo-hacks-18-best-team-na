@@ -1,15 +1,53 @@
 from flask import Flask, redirect, render_template, request
+<<<<<<< HEAD
+from uber_rides.auth import AuthorizationCodeGrant
+from uber_rides.session import Session
+from uber_rides.client import UberRidesClient
+=======
 import googlemaps
 from googlemaps import distance_matrix
 import json
+>>>>>>> origin/master
 
 app = Flask(__name__)
 maps_client = googlemaps.Client(key='AIzaSyBQyKQQh6QIdO_yP_2iBcveuJM5a5GIUkg')
 
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    return render_template('homepage.html')
+    client_id = "TIvRAECnK2JEv6tx9y0bAms6HxspyvOP"
+    client_secret = "3wYOwVb_DMSJU_58TnGvkdNWBW8vIy4izVhk-tj4"
+    server_token = "V7F1LqXN0y7iVdkiX4-EQHzcsppNIvDdWiqC38M9"
+    scopes = ["history", "request_receipt", "ride_widgets"]
+
+    session = Session(server_token=server_token)
+    client = UberRidesClient(session)
+
+    auth_flow = AuthorizationCodeGrant(
+        client_id,
+        scopes,
+        client_secret,
+        'http://localhost:8080/dashboard'
+    )
+
+    auth_url = auth_flow.get_authorization_url()
+    return render_template('homepage.html', authurl= auth_url)
+
+    session = auth_flow.get_session(redirect_url)
+    client = UberRidesClient(session, sandbox_mode=True)
+    credentials = session.oauth2credential
+
+    response = client.get_user_profile()
+    profile = response.json
+
+    first_name = profile.get('first_name')
+    last_name = profile.get('last_name')
+    email = profile.get('email')
+
+    print(first_name)
+    print(last_name)
+    print(email)
+
 
 
 @app.route('/anotherpage', methods=['GET', 'POST'])
@@ -28,6 +66,15 @@ def server_error(e):
     An internal error occurred: <pre>{}</pre>
     See logs for full stacktrace.
     """.format(e), 500
+
+@app.route('/dashboard', methods = ["GET", "POST"])
+def dashboard():
+
+    return render_template('dashboard.html')
+
+
+
+
 
 
 if __name__ == '__main__':
