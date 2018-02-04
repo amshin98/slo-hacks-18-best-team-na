@@ -4,14 +4,21 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}"
 	
 </head>
 
 <body>
+	<div class="navbar">
+		<nav class="navbar fixed-top navbar-dark bg-faded">
+			<a class="navbar-brand" href="">
+				<img src="{{ url_for('static', filename='img/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+				Get Off Your Lazy Butt.com
+			</a>
+		</nav>
+	</div>
 	<div class="container">
 		<form class="form-signin">
 			<h2 class="form-signing-heading">Please Login or Register</h2>
