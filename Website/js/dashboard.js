@@ -1,13 +1,14 @@
 (function(){
 	var config = {
-		apiKey: "AIzaSyD1Vdfz3VAiFbGMn8ZrSTpc44YLJhx75fQ",
-		authDomain: "testproj-73158.firebaseapp.com",
-		databaseURL: "https://testproj-73158.firebaseio.com",
-		projectId: "testproj-73158",
-		storageBucket: "testproj-73158.appspot.com",
-		messagingSenderId: "604434254562"
-	};
-	firebase.initializeApp(config);
+    apiKey: "AIzaSyBtdBU9_7ncyD6G96vh9dZUQugVy31zyhA",
+    authDomain: "ridesharecost.firebaseapp.com",
+    databaseURL: "https://ridesharecost.firebaseio.com",
+    projectId: "ridesharecost",
+    storageBucket: "",
+    messagingSenderId: "527449354867"
+  };
+  firebase.initializeApp(config);
+
 
 	/*firebase.auth().onAuthStateChanged(function(currentUser) {
 	  if (currentUser) {
@@ -32,12 +33,30 @@ function populateTrips(){
 	 *var trip = document.createElement("LI");
 	 *document.getElementById("tripEntries").appendChild(trip);
 	*/
-	var trip = document.createElement("LI");
-	trip.style.color = "#dfdce3";
-	trip.style.fontWeight = "bold";
-	trip.style.fontSize = "xx-large";
-	formatTrip(trip, "uber", "12/1 1:00", 10.00, 1.12)
-	document.getElementById('tripEntries').appendChild(trip);
+	var trip1 = document.createElement("LI");
+	var trip2 = document.createElement("LI");
+	var trip3 = document.createElement("LI");
+	var trip4 = document.createElement("LI");
+	trip1.style.color = "#dfdce3";
+	trip1.style.fontWeight = "bold";
+	trip1.style.fontSize = "xx-large";
+	trip2.style.color = "#dfdce3";
+	trip2.style.fontWeight = "bold";
+	trip2.style.fontSize = "xx-large";
+	trip3.style.color = "#dfdce3";
+	trip3.style.fontWeight = "bold";
+	trip3.style.fontSize = "xx-large";
+	trip4.style.color = "#dfdce3";
+	trip4.style.fontWeight = "bold";
+	trip4.style.fontSize = "xx-large";
+	formatTrip(trip1, "uber", "1/12/18 3:20 PM", 13.12, 3.83)
+	document.getElementById('tripEntries').appendChild(trip1);
+	formatTrip(trip2, "uber", "1/12/18 8:11 AM", 12.21, 3.89)
+	document.getElementById('tripEntries').appendChild(trip2);
+	formatTrip(trip3, "uber", "12/8/17 1:15 PM", 3.29, 1.12)
+	document.getElementById('tripEntries').appendChild(trip3);
+	formatTrip(trip4, "uber", "12/8/17 8:48 AM", 4.25, 0.71)
+	document.getElementById('tripEntries').appendChild(trip4);
 }
 
 function formatTrip(trip, type, dateTime, cost, dist){

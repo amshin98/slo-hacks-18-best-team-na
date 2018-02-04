@@ -1,14 +1,15 @@
 (function(){
-	// Initialize Firebase
-	var config = {
-		apiKey: "AIzaSyD1Vdfz3VAiFbGMn8ZrSTpc44YLJhx75fQ",
-		authDomain: "testproj-73158.firebaseapp.com",
-		databaseURL: "https://testproj-73158.firebaseio.com",
-		projectId: "testproj-73158",
-		storageBucket: "testproj-73158.appspot.com",
-		messagingSenderId: "604434254562"
-	};
-	firebase.initializeApp(config);
+    var config = {
+    apiKey: "AIzaSyBtdBU9_7ncyD6G96vh9dZUQugVy31zyhA",
+    authDomain: "ridesharecost.firebaseapp.com",
+    databaseURL: "https://ridesharecost.firebaseio.com",
+    projectId: "ridesharecost",
+    storageBucket: "",
+    messagingSenderId: "527449354867"
+  };
+  firebase.initializeApp(config);
+
+
 
 	//Get elements
 	const txtEmail = document.getElementById('txtEmail');
