@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+</head>
+<body>
+<div>previous rides:</div>
+{% for x in history['history'] %}
+<div>Distance of trip: {{ x['distance'] }}</div>
+{% endfor %}
+</body>
+</html>

@@ -1,15 +1,52 @@
 from flask import Flask, redirect, render_template, request
 import googlemaps
 from googlemaps import distance_matrix
-import json
+from uber_rides.session import Session
+from uber_rides.client import UberRidesClient
+from uber_rides.auth import AuthorizationCodeGrant
+from uber_rides.session import Session
+from uber_rides.client import UberRidesClient
 
 app = Flask(__name__)
 maps_client = googlemaps.Client(key='AIzaSyBQyKQQh6QIdO_yP_2iBcveuJM5a5GIUkg')
+client_id = "TIvRAECnK2JEv6tx9y0bAms6HxspyvOP"
+client_secret = "3wYOwVb_DMSJU_58TnGvkdNWBW8vIy4izVhk-tj4"
+server_token = "V7F1LqXN0y7iVdkiX4-EQHzcsppNIvDdWiqC38M9"
+scopes = ["history", "request_receipt", "ride_widgets"]
+session = Session(server_token=server_token)
+client = UberRidesClient(session)
+auth_flow = AuthorizationCodeGrant(
+    client_id,
+    scopes,
+    client_secret,
+    'http://localhost:8080/dashboard'
 
-@app.route('/')
+    )
+
+
+@app.route('/', methods=['GET', 'POST'])
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
-    return render_template('homepage.html')
+    auth_url = auth_flow.get_authorization_url()
+    return render_template('homepage.html', loginlink=auth_url)
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    session_url = request.url
+    session = auth_flow.get_session(session_url)
+    client = UberRidesClient(session, sandbox_mode=True)
+    credentials = session.oauth2credential
+    print("session is type " + str(type(session)))
+    # TODO store the credentials in the database
+    response = client.get_user_profile()
+    profile = response.json
+    fname = profile.get('first_name')
+    lname = profile.get('last_name')
+    email = profile.get('email')
+    response = client.get_user_activity()
+    history = response.json
+    print(history)
+    return render_template('dashboard.html', history=history)
 
 
 @app.route('/anotherpage', methods=['GET', 'POST'])
